@@ -1,16 +1,13 @@
 package Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -59,6 +56,11 @@ public class Base {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(duration));
         //wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void takeScreenShot(String testMethodName) throws IOException {
+       File file =  ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+       FileUtils.copyFile(file, new File("F:\\Projects\\LoanSeleniumJava\\Screenshots\\"+testMethodName+".jpg"));
     }
 
     @AfterClass

@@ -5,10 +5,12 @@ import Pages.IDFCHomePage;
 import Utils.Base;
 import Utils.Log;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+@Listeners(Utils.Listeners.class)
 public class IDFCHomeLoanTestCase extends Base {
 
     IDFCHomePage idfcHomePage;
@@ -22,7 +24,7 @@ public class IDFCHomeLoanTestCase extends Base {
     }
 
     @Test(description = "Validate home loan calculator")
-    public void Validate_home_loan_calculator() throws Exception {
+    public void validate_home_loan_calculator() throws Exception {
         Log.startTestCase("Validate_home_loan_calculator");
         idfcHomePage.clickOnHomeLoan();
         homeLoanPage.validateHomeLoanPage();
