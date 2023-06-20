@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.Log;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +33,7 @@ public class IDFCHomePage {
 
             //Click on home loan
             homeLoan.click();
+            Log.info("Click on home loan");
         }catch (NoSuchElementException e){
             e.printStackTrace();
         }

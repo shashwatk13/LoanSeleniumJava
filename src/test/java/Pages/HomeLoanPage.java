@@ -2,6 +2,7 @@ package Pages;
 
 import Utils.Base;
 import Utils.ExcelFileReader;
+import Utils.Log;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,8 +36,9 @@ public class HomeLoanPage extends Base {
     }
 
     public void validateHomeLoanPage() {
-        //Scroll page
+        //Scroll page to down
         scrollDown(0, 1800);
+        Log.info("Scroll down page");
 
         //Explicit wait
         explicitWaitVisibilityOfElement(10,homeLoanText);
@@ -45,7 +47,7 @@ public class HomeLoanPage extends Base {
         String actualHomeLoanText = homeLoanText.getText();
 
         if (actualHomeLoanText.contains("Home Loan EMI Calculator")) {
-            System.out.println("You are on Home Loan page");
+            Log.info("You are on Home Loan page");
         } else {
             Assert.fail("You are not on Home Loan page");
         }
