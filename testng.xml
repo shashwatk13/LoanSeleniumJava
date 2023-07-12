@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <listeners>
+        <listener class-name="Utils.Listeners"/>
+    </listeners>
     <test verbose="2" preserve-order="true" name="F:/Projects/LoanSeleniumJava">
         <classes>
             <class name="TestCases.IDFCHomeLoanTestCase">
                 <methods>
-                    <include name="Validate_home_loan_calculator"/>
+                    <include name="validate_home_loan_calculator"/>
                 </methods>
             </class>
         </classes>

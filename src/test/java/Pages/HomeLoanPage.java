@@ -53,7 +53,7 @@ public class HomeLoanPage extends Base {
         }
     }
 
-    public void validateHomeLoanEMICalculator () throws Exception {
+    public void validateHomeLoanEMICalculator ()  {
 
         ExcelFileReader.readExcelSheet();
 
@@ -74,7 +74,7 @@ public class HomeLoanPage extends Base {
         Assert.assertEquals(actualInterestValue,189057,"Interest Value matched");
     }
 
-    public Long amountSeparationWithRupeeSymbol() throws Exception{
+    public Long amountSeparationWithRupeeSymbol(){
 
         String amountWithRupeeSymbol = interestValue.getText();
 

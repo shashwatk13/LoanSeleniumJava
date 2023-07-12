@@ -10,13 +10,13 @@ public class Log {
     public static void startTestCase(String testCaseName)
     {
 
-        Log.info("$$$$$$$$$$$$$$$$$$$$$                 "+testCaseName+ "       $$$$$$$$$$$$$$$$$$$$$$$$$");
+        Log.info("----------------------                 "+testCaseName+ "       ---------------------------");
 
     }
 
     public static void endTestCase(String testCaseName)
     {
-        Log.info("XXXXXXXXXXXXXXXXXXXXXXX             "+"-E---N---D-"+"             XXXXXXXXXXXXXXXXXXXXXX");
+        Log.info("----------------------             "+"-E---N---D-"+"          ----------------------------");
     }
 
     public static void info(String message){

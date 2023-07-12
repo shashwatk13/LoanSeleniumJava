@@ -58,9 +58,13 @@ public class Base {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void takeScreenShot(String testMethodName) throws IOException {
-       File file =  ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-       FileUtils.copyFile(file, new File("F:\\Projects\\LoanSeleniumJava\\Screenshots\\"+testMethodName+".jpg"));
+    public String takeScreenShot(String testMethodName,WebDriver driver) throws IOException
+    {
+       File sourceFilePath =  ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+       File destinationFilePath = new File("F:\\Projects\\LoanSeleniumJava\\Screenshots\\"+testMethodName+".jpg");
+       FileUtils.copyFile(sourceFilePath, destinationFilePath);
+
+       return destinationFilePath.getAbsolutePath();
     }
 
     @AfterClass
@@ -68,5 +72,6 @@ public class Base {
     {
         driver.quit();
     }
+
 
 }

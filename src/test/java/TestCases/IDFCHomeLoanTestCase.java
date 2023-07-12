@@ -24,13 +24,12 @@ public class IDFCHomeLoanTestCase extends Base {
     }
 
     @Test(description = "Validate home loan calculator")
-    public void validate_home_loan_calculator() throws Exception {
+    public void validate_home_loan_calculator() {
         Log.startTestCase("Validate_home_loan_calculator");
         idfcHomePage.clickOnHomeLoan();
         homeLoanPage.validateHomeLoanPage();
         homeLoanPage.validateHomeLoanEMICalculator();
         Log.endTestCase("Validate_home_loan_calculator");
-        Thread.sleep(3000);
     }
 
 }

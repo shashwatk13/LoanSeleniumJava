@@ -1,20 +1,24 @@
 package Utils;
 
 import org.apache.poi.xssf.usermodel.*;
-import org.testng.annotations.Test;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 
 public class ExcelFileReader extends Base{
 
     public static String stringAmount,stringPeriod,stringInterestRate;
+    static XSSFWorkbook workbook;
 
-    public static void readExcelSheet() throws IOException {
+    public static void readExcelSheet() {
 
-        FileInputStream file = new FileInputStream("F:\\Projects\\LoanSeleniumJava\\src\\main\\resources\\ExcelSheets\\HomeLoanSheet.xlsx");
+        try {
 
-        XSSFWorkbook workbook = new XSSFWorkbook(file);
+            FileInputStream file = new FileInputStream("F:\\Projects\\LoanSeleniumJava\\src\\main\\resources\\ExcelSheets\\HomeLoanSheet.xlsx");
+            workbook = new XSSFWorkbook(file);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
         XSSFSheet sheet = workbook.getSheet("EMISheet");
 
