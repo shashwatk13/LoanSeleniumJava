@@ -33,7 +33,7 @@ public class IDFCHomePage {
 
             //Click on home loan
             homeLoan.click();
-            Log.info("Click on home loan");
+            Log.info("Click on home loan tab");
         }catch (NoSuchElementException e){
             e.printStackTrace();
         }

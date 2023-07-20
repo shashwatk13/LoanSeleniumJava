@@ -8,6 +8,7 @@ public class ExcelFileReader extends Base{
 
     public static String stringAmount,stringPeriod,stringInterestRate;
     static XSSFWorkbook workbook;
+    static XSSFSheet sheet;
 
     public static void readExcelSheet() {
 
@@ -20,7 +21,7 @@ public class ExcelFileReader extends Base{
             e.printStackTrace();
         }
 
-        XSSFSheet sheet = workbook.getSheet("EMISheet");
+        sheet = workbook.getSheet(prop.getProperty("excelSheet"));
 
         //Total numbers of rows and columns in sheet
         int totalRows = sheet.getLastRowNum();

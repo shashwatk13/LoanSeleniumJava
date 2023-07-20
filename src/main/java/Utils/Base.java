@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
 import java.io.File;
@@ -16,7 +17,7 @@ import java.util.Properties;
 public class Base {
 
     public static WebDriver driver;
-    Properties prop = new Properties();
+    public static Properties prop = new Properties();
 
     public void initSetup() throws IOException
     {
@@ -26,28 +27,39 @@ public class Base {
 
     public void initializeBrowser() throws IOException
     {
-
         initSetup();
 
-        switch (prop.getProperty("browser")){
+            switch (prop.getProperty("browser")) {
 
-            case "chrome":
-                driver = WebDriverManager.chromedriver().create();
-                break;
-            case "firefox":
-                driver = WebDriverManager.firefoxdriver().create();
-                break;
-            default:
-                System.out.println("-----Select browser-----");
-                break;
-        }
+                case "chrome":
+                    driver = WebDriverManager.chromedriver().create();
+                    break;
+                case "firefox":
+                    driver = WebDriverManager.firefoxdriver().create();
+                    break;
+                default:
+                    break;
+            }
 
         driver.manage().window().maximize();
         driver.get(prop.getProperty("applicationUrl"));
+        validateBrowserOpening();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        Log.info("Application home page");
     }
 
-    public void scrollDown(int x,int y){
+    public void validateBrowserOpening(){
+        String expectedTitle = "Products | IDFC FIRST Bank";
+        String actualTitle = driver.getTitle();
+
+        if(actualTitle.equals(expectedTitle)){
+            Log.info("Browser opened successfully.");
+        }else{
+            Assert.fail("Failed to open the browser or incorrect webpage.");
+        }
+    }
+
+    public void pageScrollDown(int x,int y){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy("+x+","+y+")", "");
     }

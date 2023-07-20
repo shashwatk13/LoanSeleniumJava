@@ -16,7 +16,7 @@ public class Log {
 
     public static void endTestCase(String testCaseName)
     {
-        Log.info("----------------------             "+"-E---N---D-"+"          ----------------------------");
+        Log.info("-----------------------             "+"END"+"          ----------------------------");
     }
 
     public static void info(String message){

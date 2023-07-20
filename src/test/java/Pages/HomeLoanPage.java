@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class HomeLoanPage extends Base {
 
@@ -37,7 +38,7 @@ public class HomeLoanPage extends Base {
 
     public void validateHomeLoanPage() {
         //Scroll page to down
-        scrollDown(0, 1800);
+        pageScrollDown(0, 1800);
         Log.info("Scroll down page");
 
         //Explicit wait
@@ -47,9 +48,9 @@ public class HomeLoanPage extends Base {
         String actualHomeLoanText = homeLoanText.getText();
 
         if (actualHomeLoanText.contains("Home Loan EMI Calculator")) {
-            Log.info("You are on Home Loan page");
+            Log.info("Home Loan EMI calculator displayed");
         } else {
-            Assert.fail("You are not on Home Loan page");
+            Assert.fail("Failed to load Home Loan page");
         }
     }
 

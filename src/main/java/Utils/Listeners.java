@@ -64,12 +64,13 @@ public class Listeners extends Base implements ITestListener {
     public void onFinish(ITestContext context) {
         extentReport.flush();
 
-        File reportFile = new File(System.getProperty("user.dir")+"\\ExtentReport\\Extent_Report.html");
+        //Automatically open extent report in browser
+        /*File reportFile = new File(System.getProperty("user.dir")+"\\ExtentReport\\Extent_Report.html");
 
         try {
             Desktop.getDesktop().browse(reportFile.toURI());
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 }
